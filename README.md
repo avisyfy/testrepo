@@ -1,2 +1,2 @@
 # testrepo
-I want to learn git hub.
+To run some tests.
