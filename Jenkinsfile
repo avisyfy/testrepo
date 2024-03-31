@@ -7,7 +7,7 @@ pipeline {
                 echo "Welcome to jenkins"
                 sh "chmod 777 file1"
                 echo "changed permissions"
-                 sh "file1"
+                 sh "./file1"
                 
             }
         }
