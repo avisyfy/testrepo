@@ -5,8 +5,8 @@ pipeline {
         stage('Hello') {
             steps {
                 echo "Welcome to jenkins"
-                echo "Hi I'm using jenkinsfile"
-                
+                chmod 777 /var/lib/jenkins/workspace/test_job/file1
+                 sh /var/lib/jenkins/workspace/test_job/file1
                 
             }
         }
