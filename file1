@@ -1,6 +1,6 @@
 echo "Welcome to github repo"
-echo"Accept input parameters"
-EXPORT ENVIRONMENT=$1
-EXPORT DB_NAME=$2
+echo "Accept input parameters"
+export ENVIRONMENT=$1
+export DB_NAME=$2
 echo "Environment name is $1"
 echo "Database name is $2"
