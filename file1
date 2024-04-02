@@ -4,5 +4,4 @@ export ENVIRONMENT=$1
 export DB_NAME=$2
 echo "Environment name is $ENVIRONMENT"
 echo "Database name is $DB_NAME"
-a=b+c
-jjsgdyyfyd546@3n!
+
