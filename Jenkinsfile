@@ -5,9 +5,9 @@ pipeline {
         stage('Hello') {
             steps {
                 echo "Welcome to jenkins"
-                sh "chmod 777 file1"
+                sh "chmod 777 file2.sh"
                 echo "changed permissions"
-                 sh "./file1"
+                 sh "./file2.sh"
                 
             }
         }
