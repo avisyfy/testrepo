@@ -4,30 +4,32 @@ pipeline {
     stages {
         stage('Hello') {
            steps {
-            echo "Welcome to jenkins"
-            echo "Hello I'm using jenkinsfile"
+            echo "Hello world!"
             
             }
         } 
-        stage("Parameters"){
+        stage("Build"){
             steps {
-                script {
-                    properties([parameters([choice(choices: ['dev', 'test', 'prod'], name: 'ENVIRONMENT'), string('DB_NAME')])])
+                echo "Building"
                 }
             }
-        }
         
-        stage("checkout git repo"){
+        stage("Deploy"){
             steps {
-                echo "checking out git repo"
-                git branch: 'main', credentialsId: 'f24155a7-7c6d-485f-a176-3329368411f9', url: 'https://github.com/avisyfy/testrepo.git'
+                echo "Deploying"
+                
             }
         
         }
-        stage("Execute shell script"){
+        stage("Test"){
             steps {
-                sh "chmod u+x /var/lib/jenkins/workspace/test_pipeline/file1;/var/lib/jenkins/workspace/test_pipeline/file1 ${params.ENVIRONMENT} ${params.DB_NAME}"
-            }
+               echo "Testing"
+                    }
         }
+stage("Release") {
+      steps {
+          echo "Releasing"
     } 
+}
+}
 }
