@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+           steps {
+            echo "Welcome to jenkins"
+            echo "Hello I'm using jenkinsfile"
+            
+            }
+        } 
+        stage("Parameters"){
+            steps {
+                script {
+                    properties([parameters([choice(choices: ['dev', 'test', 'prod'], name: 'ENVIRONMENT'), string('DB_NAME')])])
+                }
+            }
+        }
+        
+        stage("checkout git repo"){
+            steps {
+                echo "checking out git repo"
+                git branch: 'main', credentialsId: 'f24155a7-7c6d-485f-a176-3329368411f9', url: 'https://github.com/avisyfy/testrepo.git'
+            }
+        
+        }
+        stage("Execute shell script"){
+            steps {
+                sh "chmod u+x /var/lib/jenkins/workspace/test_pipeline/file1;/var/lib/jenkins/workspace/test_pipeline/file1 ${params.ENVIRONMENT} ${params.DB_NAME}"
+            }
+        }
+    } 
+}
